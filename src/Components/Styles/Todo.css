@@ -1,0 +1,67 @@
+.todo {
+    width: 60%;
+    gap: 1rem;
+    border: 1px solid var(--grey-d-color);
+    padding: 1rem 1.5rem;
+    border-radius: 1rem;
+    color: var(--grey-d-color);
+}
+
+.todo-title {
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: var(--grey-9-color);
+}
+
+.todo-title::first-letter {
+    text-transform: capitalize;
+}
+
+.todo-desc {
+    text-align: left;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 1;
+    -webkit-box-orient: vertical;
+    font-weight: 600;
+}
+
+.todo > p::first-letter {
+    text-transform: capitalize;
+}
+
+.todo-tags {
+    gap: 1rem;
+}
+
+.tag {
+    padding: 0 0.5rem;
+}
+
+.apos {
+    font-size: 1.25rem;
+}
+
+.todo-icons {
+    margin-left: auto;
+    gap: 2rem;
+}
+
+.icon {
+    transition: var(--default-transition);
+    cursor: pointer;
+    font-size: 1.5rem;
+}
+
+.icon-edit {
+    color: var(--blue-color);
+}
+
+.icon-delete {
+    color: var(--red-color);
+}
+
+.icon:hover {
+    transform: scale(1.1);
+}
