@@ -1,0 +1,7 @@
+.empty-page {
+    gap: 2rem;
+}
+
+.empty-page > .image {
+    font-size: 25rem;
+}

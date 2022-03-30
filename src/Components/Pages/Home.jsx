@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { AiOutlinePlus } from 'react-icons/ai';
 import Todo from '../Utilities/Todo';
 import Modal from '../Utilities/Modal';
+import EmptyPage from '../Utilities/EmptyPage';
 import '../Styles/Home.css';
 import { useModal } from '../Providers/ModalProvider';
 import { useTodos } from '../Providers/TodoProvider';
@@ -23,7 +24,7 @@ const Home = () => {
     return (
         <>
             <nav className='navbar flex-center'>
-                <h1>TODOS</h1>
+                <h1>🚀 TODORO</h1>
                 <input type='search' placeholder='Search by tags...' value={searchQuery} onChange={e => setSearchQuery(e.target.value)} />
             </nav>
             <div className='container flex flex-col align-center justify-start'>
@@ -32,7 +33,7 @@ const Home = () => {
                         todos.todos.length !== 0 ? todos.todos.map(todo => todo.tags.filter(tag => tag.indexOf(searchQuery) !== -1).length > 0 && (
                             <Todo key={todo.id} todo={todo} />
                         )) : (
-                            <p>Add a new todo to get started.</p>
+                            <EmptyPage />
                         )
                     }
                 </div>
