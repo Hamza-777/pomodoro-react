@@ -1,0 +1,43 @@
+.modal-container {
+    position: fixed;
+    inset: 0;
+    background: var(--light-black-3);
+}
+
+.modal-form {
+    gap: 1rem;
+    padding: 2rem;
+    border: 1px solid var(--white-color);
+    border-radius: 1rem;
+    background: var(--white-color);
+}
+
+.modal-form > input,
+.modal-form > textarea {
+    width: 20rem;
+    padding: 0.5rem 0.75rem;
+    font-size: 1rem;
+    border-radius: 1rem;
+    outline: none;
+    border: none;
+    background: var(--grey-d-color);
+}
+
+.buttons {
+    gap: 3rem;
+    padding: 1rem;
+}
+
+.buttons > .btn {
+    padding: 0.5rem 1rem;
+    border-radius: 1rem;
+}
+
+.btn-cancel {
+    background: var(--grey-d-color);
+}
+
+.btn-add {
+    background: var(--black-color);
+    color: var(--white-color);
+}
