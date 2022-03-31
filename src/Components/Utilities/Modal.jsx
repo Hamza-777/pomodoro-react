@@ -60,7 +60,7 @@ const Modal = ({ data: { todoId, todoTitle, todoDesc, todoTags, todoAlloted, tod
     return (
         <div className='modal-container flex-center'>
         <form className='modal-form flex-center flex-col' onSubmit={submitHandler}>
-            <input name='title' value={title} type='text' placeholder='Todo title...' onChange={changeFormData} />
+            <input name='title' value={title} type='text' placeholder='Todo title...' onChange={changeFormData} required />
             <textarea name='desc' value={desc} rows='10' placeholder='Todo description...' onChange={changeFormData} />
             <input name='tags' value={tags} type='text' placeholder='Todo tags separated by commas...' onChange={changeFormData} />
             <input name='alloted' value={alloted} type='number' min="0" placeholder='Minutes to allot for this todo...' onChange={changeFormData} />

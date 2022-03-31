@@ -5,12 +5,19 @@
     padding: 1rem 1.5rem;
     border-radius: 1rem;
     color: var(--grey-d-color);
+    transition: var(--default-transition);
 }
 
 .todo-title {
     font-size: 1.5rem;
     cursor: pointer;
     color: var(--grey-9-color);
+    border-bottom: 1px solid transparent;
+    transition: var(--default-transition);
+}
+
+.todo-title:hover {
+    border-bottom: 1px solid var(--grey-9-color);
 }
 
 .todo-title::first-letter {
@@ -64,4 +71,20 @@
 
 .icon:hover {
     transform: scale(1.1);
+}
+
+/* Light theme */
+
+.light-theme {
+    border: 1px solid var(--grey-3-color);
+    color: var(--grey-3-color);
+    transition: var(--default-transition);
+}
+
+.light-theme > .todo-title {
+    color: var(--grey-1-color);
+}
+
+.light-theme > .todo-title:hover {
+    border-bottom: 1px solid var(--grey-1-color);
 }

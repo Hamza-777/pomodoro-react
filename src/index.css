@@ -67,7 +67,7 @@ html {
 }
 
 body {
-    background: var(--dark-color);
+    background: var(--black-color);
 }
 
 img {
@@ -307,10 +307,23 @@ input[type='radio'] {
 
 /* Track */
 ::-webkit-scrollbar-track {
-    background: var(--grey-7-color);
+    background: var(--grey-4-color);
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
+    background: var(--grey-9-color);
+}
+
+/* COLOR IDS */
+#white-color {
+    color: var(--white-color);
+    background: var(--black-color);
+    transition: var(--default-transition);
+}
+
+#black-color {
+    color: var(--black-color);
     background: var(--white-color);
+    transition: var(--default-transition);
 }
