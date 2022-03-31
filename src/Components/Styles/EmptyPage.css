@@ -5,3 +5,7 @@
 .empty-page > .image {
     font-size: 25rem;
 }
+
+.empty-page > p {
+    font-weight: 600;
+}
