@@ -82,3 +82,25 @@
     font-size: 1.5rem;
     transition: var(--default-transition);
 }
+
+@media screen and (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        gap: 2rem;
+    }
+
+    .navbar-left {
+        gap: 1rem;
+    }
+
+    .container {
+        width: 100%;
+        margin: 0 auto;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .navbar-left {
+        flex-direction: column;
+    }
+}

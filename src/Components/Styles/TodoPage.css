@@ -1,0 +1,124 @@
+.todo-page {
+    width: 80vw;
+    margin: 0 auto;
+    padding: 2rem;
+    height: 100vh;
+    gap: 5rem;
+}
+
+.todo-page-left {
+    flex: 0.5;
+    gap: 5rem;
+}
+
+.progress-bar {
+    width: 20rem;
+    height: 20rem;
+}
+
+.timer {
+    color: white;
+}
+
+.timer-light {
+    color: black;
+}
+
+.todo-page-left > .buttons {
+    gap: 2rem;
+}
+
+.todo-page-left > .buttons > .btn {
+    gap: 1rem;
+    transition: var(--default-transition);
+}
+
+.todo-page-left > .buttons > .btn:hover {
+    transform: scale(1.1);
+}
+
+.todo-page-left > .buttons > .btn-start {
+    border: 2px solid var(--green-color);
+    color: var(--green-color);
+}
+
+.todo-page-left > .buttons > .btn-pause {
+    border: 2px solid var(--blue-color);
+    color: var(--blue-color);
+}
+
+.todo-page-left > .buttons > .btn-restart {
+    border: 2px solid var(--red-color);
+    color: var(--red-color);
+}
+
+.todo-page-right {
+    flex: 0.4;
+    background: var(--white-color);
+    border-radius: 2rem;
+    padding: 1rem;
+    gap: 1rem;
+}
+
+.todo-page-right > h1::first-letter {
+    text-transform: capitalize;
+}
+
+.todo-page-right > p::first-letter {
+    text-transform: capitalize;
+}
+
+.todo-page-right > p {
+    text-align: left;
+    font-size: 1rem;
+    font-weight: 600;
+}
+
+.todo-page-right > .todo-tags {
+    gap: 1rem;
+}
+
+.todo-page-right > .todo-tags > .tag {
+    padding: 0.25rem;
+}
+
+.apos {
+    font-size: 1.25rem;
+}
+
+h4 {
+    margin-left: auto;
+    font-size: 0.75rem;
+}
+
+.description {
+    max-height: 30rem;
+    overflow-y: auto;
+}
+
+/* Scrollbar */
+
+.description::-webkit-scrollbar {
+    width: 4px;
+    height: 4px;
+}
+
+.description::-webkit-scrollbar-thumb {
+    border-radius: 1rem;
+}
+
+.description::-webkit-scrollbar-track {
+    margin: 10rem 0;
+    border-radius: 1rem;
+}
+
+@media screen and (max-width: 900px) {
+    .todo-page {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .todo-page-left {
+        flex: 1;
+    }
+}
