@@ -327,3 +327,15 @@ input[type='radio'] {
     background: var(--white-color);
     transition: var(--default-transition);
 }
+
+@media screen and (max-width: 900px) {
+    html {
+        font-size: 80%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    html {
+        font-size: 62.5%;
+    }
+}

@@ -11,7 +11,7 @@ import { AiOutlinePause } from 'react-icons/ai';
 
 const TodoPage = () => {
     const { id } = useParams();
-    const { todos } = useTodos();
+    const { todos: { todos } } = useTodos();
     const { theme } = useTheme();
     const [ currentTodo, setCurrentTodo ] = useState({});
     const [ timer, setTimer ] = useState({
@@ -24,7 +24,7 @@ const TodoPage = () => {
     const { minutes, seconds } = timer;
 
     useEffect(() => {
-        setCurrentTodo({...todos.todos.filter(todo => todo.id === id )[0]});
+        setCurrentTodo({...todos.filter(todo => todo.id === id )[0]});
     }, [id, todos]);
 
     useEffect(() => {
@@ -85,7 +85,7 @@ const TodoPage = () => {
                             })}>
                                 <div className={`flex-center flex-col ${theme === 'dark' ? 'timer' : 'timer-light'}`}>
                                     <h1 style={{color: `${(minutes * 60 + seconds) < ((currentTodo.alloted * 60) / 4) ? 'var(--red-color)' : 'var(--green-color)'}`}}>{`${minutes}m : ${seconds < 10 ? 0 : ''}${seconds}s`}</h1>
-                                    <h3>{`Out of ${currentTodo.alloted} minutes`}</h3>
+                                    <h3>{`Out of ${currentTodo.alloted} ${currentTodo.alloted === 1 ? 'minute' : 'minutes'}`}</h3>
                                 </div>
                             </CircularProgressbarWithChildren>
                     </div>
