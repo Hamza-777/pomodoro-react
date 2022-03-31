@@ -1,66 +1,10 @@
 import React, { createContext, useContext, useReducer } from 'react';
+import { getTodos } from '../Utilities/localStorage';
 
 const todoContext = createContext(null);
 
 const initialTodos = {
-    todos: [
-        {
-            id: '0',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['plants', 'environment'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '1',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['trees', 'globe'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '2',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['plants', 'environment'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '3',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['trees', 'globe'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '4',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['plants', 'environment'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '5',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['trees', 'globe'],
-            alloted: 5,
-            createdAt: Date.now()
-        },
-        {
-            id: '6',
-            title: 'Water the plants.',
-            desc: 'Water the plants early in the morning, it helps refresh you as well as the plants.',
-            tags: ['plants', 'environment'],
-            alloted: 5,
-            createdAt: Date.now()
-        }
-    ]
+    todos: getTodos()
 }
 
 const reducer = ( state, { type, payload } ) => {
