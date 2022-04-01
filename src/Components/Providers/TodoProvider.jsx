@@ -1,5 +1,5 @@
 import React, { createContext, useContext, useReducer } from 'react';
-import { getTodos } from '../Utilities/localStorage';
+import { getTodos, setTodos } from '../Utilities/localStorage';
 
 const todoContext = createContext(null);
 
@@ -12,16 +12,17 @@ const reducer = ( state, { type, payload } ) => {
         case 'ADD_TODO':
             return {
                 ...state,
-                todos: [...state.todos, payload]
+                todos: setTodos([...state.todos, payload])
             }
         case 'DELETE_TODO':
             return {
                 ...state,
-                todos: state.todos.filter(todo => todo.id !== payload)
+                todos: setTodos(state.todos.filter(todo => todo.id !== payload))
             }
         case 'UPDATE_TODO':
             let idx = state.todos.map((todo, idx) => [todo.id === payload[0], idx] ).filter(item => item[0] !== false)[0][1];
             state.todos[idx] = {...state.todos[idx], id: payload[1].id, title: payload[1].title, desc: payload[1].desc, tags: payload[1].tags, alloted: payload[1].alloted };
+            setTodos(state.todos);
             return state;
         default:
             return state;

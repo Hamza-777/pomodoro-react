@@ -9,7 +9,7 @@ import '../Styles/Home.css';
 import { useModal } from '../Providers/ModalProvider';
 import { useTodos } from '../Providers/TodoProvider';
 import { useTheme } from '../Providers/ThemeProvider';
-import { storeInLocalStorage, setTodos } from '../Utilities/localStorage';
+import { storeInLocalStorage } from '../Utilities/localStorage';
 
 const Home = () => {
     const { modalOpen, setModalOpen } = useModal();
@@ -32,10 +32,6 @@ const Home = () => {
     useEffect(() => {
         setColorId(theme === 'dark' ? '' : 'black-color');
     }, [theme]);
-
-    useEffect(() => {
-        setTodos(todos.todos);
-    }, [todos])
 
     return (
         <div id={colorId}>

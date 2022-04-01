@@ -8,6 +8,7 @@ const getFromLocalStorage = () => {
 
 const setTodos = (todos) => {
     localStorage.setItem('todos', JSON.stringify(todos));
+    return JSON.parse(localStorage.getItem('todos'))
 }
 
 const getTodos = () => {
