@@ -2,10 +2,17 @@
     gap: 2rem;
 }
 
-.empty-page > .image {
+.error-page {
+    gap: 2rem;
+    height: 100vh;
+}
+
+.empty-page > .image,
+.error-page > .image {
     font-size: 25rem;
 }
 
-.empty-page > p {
+.empty-page > p,
+.error-page > p {
     font-weight: 600;
 }
