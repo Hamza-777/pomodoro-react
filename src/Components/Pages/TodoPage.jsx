@@ -11,6 +11,7 @@ import 'react-circular-progressbar/dist/styles.css';
 import { VscDebugStart } from 'react-icons/vsc';
 import { MdOutlineRestartAlt } from 'react-icons/md';
 import { AiOutlinePause } from 'react-icons/ai';
+import { timeover } from '../Utilities/toasts';
 
 const TodoPage = () => {
   const { id } = useParams();
@@ -48,6 +49,7 @@ const TodoPage = () => {
     if (timerOn) {
       if (minutes === 0 && seconds === 0) {
         setTimerOn(false);
+        timeover(theme);
       } else if (seconds === 0) {
         timeout.current = setTimeout(
           () => setTimer({ ...timer, seconds: 59, minutes: minutes - 1 }),
