@@ -1,18 +1,25 @@
 .empty-page {
-    gap: 2rem;
+  gap: 2rem;
 }
 
 .error-page {
-    gap: 2rem;
-    height: 100vh;
+  gap: 2rem;
+  height: 100vh;
 }
 
 .empty-page > .image,
 .error-page > .image {
-    font-size: 25rem;
+  font-size: 25rem;
 }
 
 .empty-page > p,
 .error-page > p {
-    font-weight: 600;
+  font-weight: 600;
+}
+
+.err-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }

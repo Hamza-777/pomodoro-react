@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react';
-import { useParams } from 'react-router-dom';
+import { Link, useParams } from 'react-router-dom';
 import { useTodos } from '../Providers/TodoProvider';
 import { useTheme } from '../Providers/ThemeProvider';
 import '../Styles/TodoPage.css';
@@ -68,10 +68,13 @@ const TodoPage = () => {
         }${seconds}s || POMODORO`;
       }
     }
+
+    return () => {
+      clearTimeout(timeout.current);
+    };
   }, [timer, timerOn, minutes, seconds]);
 
   const resetTimer = (e) => {
-    clearTimeout(timeout.current);
     setTimerOn(false);
     setTimer({ minutes: +currentTodo.alloted, seconds: 0 });
   };
@@ -81,9 +84,40 @@ const TodoPage = () => {
 
   return (
     <div id={colorId}>
-      <div className='todo-page flex-center'>
-        <div className='todo-page-left flex-center flex-col'>
-          <div className='progress-bar'>
+      <Link to='/' className='btn go-back flex-center'>
+        &larr; GO BACK
+      </Link>
+      <div className='todo-page flex-center flex-col'>
+        <div className='todo-page-left flex-center'>
+          <div className='buttons flex-row-wrap align-center justify-center'>
+            <button
+              className='btn flex-center'
+              onClick={(e) => setTimerOn(true)}
+            >
+              {' '}
+              <VscDebugStart className='icon' /> Start
+            </button>
+            <button
+              className='btn flex-center'
+              onClick={(e) => setTimerOn(false)}
+            >
+              {' '}
+              <AiOutlinePause className='icon' /> Pause
+            </button>
+            <button className='btn flex-center' onClick={resetTimer}>
+              {' '}
+              <MdOutlineRestartAlt className='icon' /> Restart
+            </button>
+          </div>
+          <div
+            className='progress-bar'
+            style={{
+              border: `10px solid var(--${
+                theme === 'dark' ? 'black' : 'white'
+              }-color)`,
+              borderRadius: '50%',
+            }}
+          >
             <CircularProgressbarWithChildren
               value={minutes * 60 + seconds}
               minValue={0}
@@ -97,7 +131,7 @@ const TodoPage = () => {
                 pathColor: `${
                   minutes * 60 + seconds < (currentTodo.alloted * 60) / 4
                     ? 'var(--red-color)'
-                    : 'var(--green-color)'
+                    : '#069a8e'
                 }`,
                 trailColor: `var(--${
                   theme === 'dark' ? 'black' : 'white'
@@ -118,7 +152,7 @@ const TodoPage = () => {
                     color: `${
                       minutes * 60 + seconds < (currentTodo.alloted * 60) / 4
                         ? 'var(--red-color)'
-                        : 'var(--green-color)'
+                        : '#069a8e'
                     }`,
                   }}
                 >{`${minutes}m : ${seconds < 10 ? 0 : ''}${seconds}s`}</h1>
@@ -128,37 +162,28 @@ const TodoPage = () => {
               </div>
             </CircularProgressbarWithChildren>
           </div>
-          <div className='buttons flex-row-wrap align-center justify-center'>
-            <button
-              className='btn btn-start flex-center'
-              onClick={(e) => setTimerOn(true)}
+          <div class='waves'>
+            <svg
+              data-name='Layer 1'
+              xmlns='http://www.w3.org/2000/svg'
+              viewBox='0 0 1200 120'
+              preserveAspectRatio='none'
             >
-              {' '}
-              <VscDebugStart className='icon' /> Start
-            </button>
-            <button
-              className='btn btn-pause flex-center'
-              onClick={(e) => setTimerOn(false)}
-            >
-              {' '}
-              <AiOutlinePause className='icon' /> Pause
-            </button>
-            <button
-              className='btn btn-restart flex-center'
-              onClick={resetTimer}
-            >
-              {' '}
-              <MdOutlineRestartAlt className='icon' /> Restart
-            </button>
+              <path
+                d='M321.39,56.44c58-10.79,114.16-30.13,172-41.86,82.39-16.72,168.19-17.73,250.45-.39C823.78,31,906.67,72,985.66,92.83c70.05,18.48,146.53,26.09,214.34,3V0H0V27.35A600.21,600.21,0,0,0,321.39,56.44Z'
+                class='shape-fill'
+              ></path>
+            </svg>
           </div>
         </div>
         <div className='todo-page-right flex flex-col align-start justify-start '>
           <h1>{currentTodo.title}</h1>
-          {currentTodo.desc && (
-            <p className='description'>{currentTodo.desc}</p>
-          )}
-          <h3>TAGS:</h3>
+          <div className='flex-center flex-col align-start description'>
+            <h2>Description &rarr;</h2>
+            {currentTodo.desc && <p>{currentTodo.desc}</p>}
+          </div>
           <div className='todo-tags flex-row-wrap align-center justify-start'>
+            <h2>TAGS &rarr;</h2>
             {currentTodo.tags &&
             currentTodo.tags.filter((tag) => tag !== '').length > 0 ? (
               currentTodo.tags.map((tag, idx) => (
@@ -173,7 +198,7 @@ const TodoPage = () => {
               <p>None</p>
             )}
           </div>
-          <h4>Created At: {creationDate}</h4>
+          <h4>Created At &rarr; {creationDate}</h4>
         </div>
       </div>
     </div>
