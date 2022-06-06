@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { AiOutlinePlus } from 'react-icons/ai';
 import { FaRegSun } from 'react-icons/fa';
 import { BsMoonStarsFill } from 'react-icons/bs';
 import Todo from '../Utilities/Todo';
@@ -99,13 +98,13 @@ const Home = () => {
         {modalOpen.status && <Modal data={modalOpen.data} />}
         <button
           className='btn add-todo flex-center'
-          //   id={theme === 'light' ? 'white-color' : 'black-color'}
           style={{
             transform: `rotate(${rotation}deg)`,
           }}
           onClick={toggleModal}
         >
-          {/* <AiOutlinePlus /> */} +
+          {' '}
+          +
         </button>
       </div>
     </div>
