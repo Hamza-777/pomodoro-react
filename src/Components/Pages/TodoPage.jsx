@@ -43,9 +43,9 @@ const TodoPage = () => {
   }, [theme]);
 
   useEffect(() => {
-    document.title = `${minutes}m : ${
-      seconds < 10 ? 0 : ''
-    }${seconds}s || POMODORO`;
+    document.title = `${minutes}m : ${seconds < 10 ? 0 : ''}${seconds}s || ${
+      currentTodo && currentTodo.title
+    }`;
     if (timerOn) {
       if (minutes === 0 && seconds === 0) {
         setTimerOn(false);
@@ -148,6 +148,11 @@ const TodoPage = () => {
                 }`}
               >
                 <h1
+                  className={`${
+                    minutes * 60 + seconds < (currentTodo.alloted * 60) / 4
+                      ? 'blinking-text'
+                      : ''
+                  }`}
                   style={{
                     color: `${
                       minutes * 60 + seconds < (currentTodo.alloted * 60) / 4
@@ -178,12 +183,10 @@ const TodoPage = () => {
         </div>
         <div className='todo-page-right flex flex-col align-start justify-start '>
           <h1>{currentTodo.title}</h1>
-          <div className='flex-center flex-col align-start description'>
-            <h2>Description &rarr;</h2>
-            {currentTodo.desc && <p>{currentTodo.desc}</p>}
-          </div>
+          {currentTodo.desc && (
+            <p className='description'>{currentTodo.desc}</p>
+          )}
           <div className='todo-tags flex-row-wrap align-center justify-start'>
-            <h2>TAGS &rarr;</h2>
             {currentTodo.tags &&
             currentTodo.tags.filter((tag) => tag !== '').length > 0 ? (
               currentTodo.tags.map((tag, idx) => (
@@ -195,10 +198,10 @@ const TodoPage = () => {
                 </div>
               ))
             ) : (
-              <p>None</p>
+              <p>No tags</p>
             )}
           </div>
-          <h4>Created At &rarr; {creationDate}</h4>
+          <h4 className='creation'>Created At &rarr; {creationDate}</h4>
         </div>
       </div>
     </div>

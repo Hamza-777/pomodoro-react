@@ -82,12 +82,14 @@
 .todo-page-right {
   width: 100%;
   background: #005555;
-  color: #a1e3d8;
-  padding: 5rem 20vw;
-  gap: 1rem;
+  color: #effffd;
+  padding: 5rem 15vw;
+  gap: 2rem;
 }
 
 .todo-page-right > h1 {
+  font-weight: 500;
+  font-size: 3rem;
   margin-inline: auto;
 }
 
@@ -99,42 +101,61 @@
   text-transform: capitalize;
 }
 
-.todo-page-right > p {
-  text-align: left;
-  font-size: 1rem;
-  font-weight: 600;
-}
-
 .todo-page-right > .todo-tags {
   gap: 1rem;
+  border: 2px solid #effffd;
+  border-radius: 4px;
+  padding: 1rem 2rem;
+  margin-inline: auto;
 }
 
 .todo-page-right > .todo-tags > .tag {
   padding: 0.25rem;
 }
 
-.apos {
+.creation {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
   font-size: 1.25rem;
-}
-
-h4 {
-  margin-left: auto;
-  font-size: 0.75rem;
+  background: linear-gradient(to right, #005555, #069a8e, #a1e3d8);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
 }
 
 .description {
-  gap: 1rem;
-}
-
-.description > p {
   font-size: 1.25rem;
-  word-break: break-all;
-  word-wrap: break-word;
   line-height: 1.2;
   text-align: justify;
-  padding: 0 1rem;
-  border-left: 2px solid #a1e3d8;
+  text-align-last: left;
+  margin-inline: auto;
+}
+
+.blinking-text {
+  font-weight: 100;
+  font-size: 30px;
+  color: red;
+  -webkit-animation: 1s blink step-end infinite;
+  -moz-animation: 1s blink step-end infinite;
+  -ms-animation: 1s blink step-end infinite;
+  -o-animation: 1s blink step-end infinite;
+  animation: 1s blink step-end infinite;
+}
+
+@keyframes blink {
+  from,
+  to {
+    color: transparent;
+  }
+  50% {
+    color: red;
+  }
 }
 
 @media screen and (max-width: 900px) {
+  .todo-page-left {
+    flex-direction: column;
+    gap: 3rem;
+  }
 }

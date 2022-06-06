@@ -6,11 +6,7 @@ const ErrorPage = () => {
   const { theme } = useTheme();
 
   return (
-    <div
-      className='error-page flex-center flex-col'
-      style={{ backgroundColor: theme === 'dark' ? '#000' : '#fff' }}
-    >
-      <img className='img' src='img/blob-haikei.svg' alt='page not found' />
+    <div className='error-page flex-center flex-col'>
       <div className='err-text flex-center flex-col'>
         <h1
           style={{
