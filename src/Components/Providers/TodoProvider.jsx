@@ -12,7 +12,7 @@ const reducer = ( state, { type, payload } ) => {
         case 'ADD_TODO':
             return {
                 ...state,
-                todos: setTodos([...state.todos, payload])
+                todos: setTodos([payload, ...state.todos])
             }
         case 'DELETE_TODO':
             return {
@@ -20,7 +20,7 @@ const reducer = ( state, { type, payload } ) => {
                 todos: setTodos(state.todos.filter(todo => todo.id !== payload))
             }
         case 'UPDATE_TODO':
-            let idx = state.todos.map((todo, idx) => [todo.id === payload[0], idx] ).filter(item => item[0] !== false)[0][1];
+            let idx = state.todos.findIndex(todo => todo.id === payload[0]);
             state.todos[idx] = {...state.todos[idx], id: payload[1].id, title: payload[1].title, desc: payload[1].desc, tags: payload[1].tags, alloted: payload[1].alloted };
             setTodos(state.todos);
             return state;

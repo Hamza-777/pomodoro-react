@@ -92,7 +92,7 @@ const TodoPage = () => {
           <div className='buttons flex-row-wrap align-center justify-center'>
             <button
               className='btn flex-center'
-              onClick={(e) => setTimerOn(true)}
+              onClick={(e) => currentTodo.alloted > 0 && setTimerOn(true)}
             >
               {' '}
               <VscDebugStart className='icon' /> Start
@@ -160,8 +160,8 @@ const TodoPage = () => {
                         : '#069a8e'
                     }`,
                   }}
-                >{`${minutes}m : ${seconds < 10 ? 0 : ''}${seconds}s`}</h1>
-                <h3>{`Out of ${currentTodo.alloted} ${
+                >{currentTodo.alloted === 0 ? '∞' : `${minutes}m : ${seconds < 10 ? 0 : ''}${seconds}s`}</h1>
+                <h3>{`Out of ${currentTodo.alloted === 0 ? '∞' : currentTodo.alloted} ${
                   currentTodo.alloted === 1 ? 'minute' : 'minutes'
                 }`}</h3>
               </div>
